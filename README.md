@@ -9,7 +9,6 @@ This boilerplate is using the following libraries/frameworks:
 
 - React
 - Redux (using [Ducks file structure](https://github.com/erikras/ducks-modular-redux) for the redux part)
-- Typescript
 - Eslint
 - Prettier
 
@@ -95,4 +94,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
 # yarb
