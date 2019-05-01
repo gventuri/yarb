@@ -3,28 +3,28 @@
 
 const API_URL = 'https://api.example.com/path';
 
-const SUCCESS = 'module1/CONTRIBUTORS_FETCH_SUCCESS';
-const FAILURE = 'module1/CONTRIBUTORS_FETCH_FAILURE';
+const FETCH_SUCCESS = 'module1/FETCH_SUCCESS';
+const FETCH_FAILURE = 'module1/FETCH_FAILURE';
 
 // ------------------------------------
 // Action creators
 
-function fetchSuccess(result: object) {
+function fetchSuccess(result) {
   return {
-    type: SUCCESS,
+    type: FETCH_SUCCESS,
     payload: result
   };
 }
 
-function fetchFailure(error: string) {
+function fetchFailure(error) {
   return {
-    type: FAILURE,
+    type: FETCH_FAILURE,
     payload: error
   };
 }
 
 export function fetchAPI() {
-  return async (dispatch: any) => {
+  return async (dispatch) => {
     const response = await fetch(`${API_URL}`);
     if (!response.ok) {
       return dispatch(fetchFailure('Unable to fetch'));
@@ -42,7 +42,7 @@ export function fetchAPI() {
 // ------------------------------------
 // Selectors
 
-export const getResult = (state: any) => state.result;
+export const getResult = (state) => state.result;
 
 // ------------------------------------
 // Store & reducer
@@ -51,16 +51,16 @@ const initialState = {
   loaded: true
 };
 
-export default function reducer(state = initialState, action: any) {
+export default function reducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case SUCCESS:
+    case FETCH_SUCCESS:
       return {
         ...state,
         result: payload
       };
-    case FAILURE:
+    case FETCH_FAILURE:
       return {
         ...state,
         error: payload
